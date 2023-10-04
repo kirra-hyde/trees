@@ -11,6 +11,22 @@ class TreeNode {
   /** sumValues(): add up all values of invoking node and its children.
    * Returns sum as an integer. */
   sumValues() {
+    //node. Takes its value.  Go to children
+    if (this.children.length === 0) return 0;
+
+    const stack = [this.val];
+    console.log("stack before loop:", stack);
+    console.log("this.children:", this.children);
+    console.log("this.val:", this.val);
+
+    for (child of this.children) {
+      stack.push(child);
+    }
+    console.log("stack after loop:", stack);
+    let current = stack.pop();
+    console.log("current:", current);
+    return current.val + this.sumValues(stack);
+
 
   }
 
@@ -24,7 +40,7 @@ class TreeNode {
   /** numGreater(lowerBound): starting from the invoking node and moving through
    * its children, return a count of the number of nodes whose value is greater
    * than lowerBound. */
-  numGreater(lowerBound){
+  numGreater(lowerBound) {
 
   }
 }
